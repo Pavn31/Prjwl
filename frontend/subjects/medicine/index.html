@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Medicine | Dr. Prajwal Badiger</title>
+    <meta
+      name="description"
+      content="Medicine study resources, theory materials and clinical learning resources for Dr. Prajwal Badiger."
+    />
 
     <link rel="icon" type="image/png" href="../../assets/Icon.png" />
     <link rel="stylesheet" href="style.css" />
@@ -21,7 +25,9 @@
   <body>
     <header class="navbar">
       <div class="navbar-inner">
-        <a href="../../index.html" class="logo">PB<span>.</span></a>
+        <a href="../../index.html" class="logo" aria-label="Portfolio home">
+          PB<span>.</span>
+        </a>
 
         <a href="../../index.html#clinical" class="back-link">
           ← Clinical Training
@@ -46,7 +52,7 @@
           <h1>Medicine<span>.</span></h1>
 
           <p class="description">
-            Study materials and clinical learning resources.
+            Study materials, medical references and clinical learning resources.
           </p>
 
           <div class="subject-meta">
@@ -57,31 +63,43 @@
         </div>
       </section>
 
-      <section class="resources">
+      <section class="resources" id="resources">
         <div class="container">
           <div class="section-heading">
             <span class="eyebrow">SUBJECT RESOURCES</span>
             <h2>Choose a <em>Section</em></h2>
-            <p>Open theory materials or clinical resources.</p>
+            <p>Select a section to access its study materials.</p>
           </div>
 
           <div class="resource-grid">
-            <a href="theory/" class="resource-card">
+            <a
+              href="theory/index.html"
+              class="resource-card"
+              aria-label="Open Medicine Theory resources"
+            >
               <span class="resource-number">01 / THEORY</span>
+
               <div>
                 <h3>Theory</h3>
-                <p>PDFs, images and study notes.</p>
+                <p>PDF documents, medical images and study notes.</p>
               </div>
-              <span class="resource-arrow">↗</span>
+
+              <span class="resource-arrow" aria-hidden="true">↗</span>
             </a>
 
-            <a href="clinic/" class="resource-card">
+            <a
+              href="clinic/index.html"
+              class="resource-card"
+              aria-label="Open Medicine Clinical resources"
+            >
               <span class="resource-number">02 / CLINICAL</span>
+
               <div>
                 <h3>Clinic</h3>
-                <p>Clinical PDFs, images and notes.</p>
+                <p>Clinical references, images and learning notes.</p>
               </div>
-              <span class="resource-arrow">↗</span>
+
+              <span class="resource-arrow" aria-hidden="true">↗</span>
             </a>
           </div>
 

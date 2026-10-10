@@ -1,953 +1,644 @@
-/* =========================================================
-   DR. PRAJWAL BADIGER — PAPER / FLAT 2D MEDICAL PORTFOLIO
-========================================================= */
-
 :root {
   --bg: #f4efe5;
   --surface: #faf7ef;
   --surface-2: #e9e1d2;
-
   --text: #18242a;
   --muted: #68747a;
-
   --ink: #16364a;
   --ink-dark: #0f2b3d;
-
   --teal: #2b817c;
   --teal-soft: #5ba7a1;
-
   --border: #d5cbbb;
   --border-strong: #bcae9d;
-
   --max-width: 1180px;
   --nav-height: 78px;
-
   --ease: 220ms ease;
 }
-
-/* =========================================================
-   DARK — MATTE BLUE PAPER
-========================================================= */
-
 body.dark {
   --bg: #102531;
   --surface: #162f3f;
   --surface-2: #1c394a;
-
   --text: #f0ede4;
   --muted: #aebbc0;
-
   --ink: #e9eee9;
   --ink-dark: #f4f0e6;
-
   --teal: #6bbab4;
   --teal-soft: #86cbc5;
-
   --border: #294656;
   --border-strong: #3b5968;
 }
-
-/* =========================================================
-   RESET
-========================================================= */
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
 }
-
 body {
   min-width: 320px;
   overflow-x: hidden;
-
   background: var(--bg);
   color: var(--text);
-
   font-family: "Manrope", sans-serif;
   line-height: 1.6;
-
   transition:
     background-color var(--ease),
     color var(--ease);
 }
-
 img,
 svg {
   display: block;
 }
-
 img {
   max-width: 100%;
 }
-
 a {
   color: inherit;
   text-decoration: none;
 }
-
 button {
   font: inherit;
 }
-
 ::selection {
   background: var(--teal);
   color: #fff;
 }
-
-/* =========================================================
-   GLOBAL CONTAINER
-========================================================= */
-
 .container {
   width: min(var(--max-width), calc(100% - 48px));
   margin-inline: auto;
 }
-
-/* =========================================================
-   NAVBAR
-========================================================= */
-
 .navbar {
   position: fixed;
   inset: 0 0 auto;
-
   z-index: 1000;
-
   height: var(--nav-height);
-
   background: var(--bg);
   border-bottom: 1px solid transparent;
-
   transition:
     background-color var(--ease),
     border-color var(--ease);
 }
-
 .navbar.scrolled {
   border-bottom-color: var(--border);
 }
-
 .navbar-inner {
   width: min(var(--max-width), calc(100% - 48px));
   height: 100%;
   margin-inline: auto;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
 }
-
 .logo {
   flex: 0 0 auto;
-
   font-family: "Playfair Display", serif;
   font-size: 30px;
   font-weight: 700;
   line-height: 1;
   letter-spacing: -1px;
-
   color: var(--ink-dark);
 }
-
 .logo span {
   color: var(--teal);
 }
-
 .nav-links {
   display: flex;
   align-items: center;
   gap: 28px;
 }
-
 .nav-links a {
   position: relative;
-
   padding: 5px 0;
-
   font-size: 12px;
   font-weight: 700;
-
   color: var(--muted);
-
   transition: color var(--ease);
 }
-
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--teal);
 }
-
 .nav-links a::after {
   content: "";
-
   position: absolute;
   left: 0;
   bottom: 0;
-
   width: 0;
   height: 1px;
-
   background: var(--teal);
-
   transition: width var(--ease);
 }
-
 .nav-links a:hover::after,
 .nav-links a.active::after {
   width: 100%;
 }
-
 .nav-actions {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-
 .theme-toggle {
   width: 38px;
   height: 38px;
-
   display: grid;
   place-items: center;
-
   background: transparent;
   border: 1px solid var(--border);
-
   color: var(--text);
-
   cursor: pointer;
-
   transition:
     background-color var(--ease),
     border-color var(--ease),
     color var(--ease);
 }
-
 .theme-toggle:hover {
   background: var(--ink);
   border-color: var(--ink);
   color: var(--bg);
 }
-
 .theme-icon {
   font-size: 16px;
   line-height: 1;
 }
-
 .nav-contact {
   min-height: 38px;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   padding: 0 17px;
-
   background: var(--ink);
   border: 1px solid var(--ink);
-
   color: var(--bg);
-
   font-size: 12px;
   font-weight: 800;
-
   transition:
     background-color var(--ease),
     border-color var(--ease),
     color var(--ease);
 }
-
 .nav-contact:hover {
   background: var(--teal);
   border-color: var(--teal);
   color: #fff;
 }
-
-/* =========================================================
-   HERO
-========================================================= */
-
 .hero {
   padding-top: var(--nav-height);
   border-bottom: 1px solid var(--border);
 }
-
 .hero .container {
   width: min(var(--max-width), calc(100% - 48px));
 }
-
 .hero-grid {
   min-height: calc(100vh - var(--nav-height));
-
   display: grid;
   grid-template-columns: minmax(0, 1fr) 460px;
   align-items: center;
   gap: 70px;
-
   padding: 55px 0 70px;
 }
-
 .hero-content {
   max-width: 650px;
 }
-
 .hero-eyebrow {
   margin-bottom: 18px;
-
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 2px;
-
   color: var(--teal);
 }
-
 .hero-title {
   margin-bottom: 22px;
-
   font-family: "Playfair Display", serif;
   font-size: clamp(58px, 6.4vw, 88px);
   font-weight: 600;
   line-height: 0.94;
   letter-spacing: -4px;
-
   color: var(--ink-dark);
 }
-
 .hero-subtitle {
   margin-bottom: 18px;
-
   font-size: 15px;
   font-weight: 700;
-
   color: var(--muted);
 }
-
 .hero-subtitle span {
   padding-inline: 7px;
   color: var(--teal);
 }
-
 .hero-description {
   max-width: 530px;
   margin-bottom: 30px;
-
   font-size: 14px;
   line-height: 1.75;
-
   color: var(--muted);
 }
-
 .hero-buttons {
   display: flex;
   align-items: center;
   gap: 11px;
 }
-
 .btn {
   min-height: 45px;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-
   padding: 0 19px;
-
   border: 1px solid var(--ink);
-
   font-size: 12px;
   font-weight: 800;
-
   transition:
     background-color var(--ease),
     border-color var(--ease),
     color var(--ease);
 }
-
 .btn-primary {
   background: var(--ink);
   color: var(--bg);
 }
-
 .btn-primary:hover {
   background: var(--teal);
   border-color: var(--teal);
   color: #fff;
 }
-
 .btn-secondary {
   background: transparent;
   border-color: var(--border-strong);
   color: var(--ink-dark);
 }
-
 .btn-secondary:hover {
   background: var(--ink);
   border-color: var(--ink);
   color: var(--bg);
 }
-
-/* =========================================================
-   HERO VISUAL
-========================================================= */
-
 .hero-visual {
   position: relative;
-
   width: 460px;
   max-width: 100%;
-
   margin-inline: auto;
-
   padding: 0 0 64px;
 }
-
 .medical-orbit {
   display: none;
 }
-
 .portrait-card {
   position: relative;
   z-index: 2;
-
   width: 390px;
   margin-left: auto;
-
   background: var(--surface);
   border: 1px solid var(--border);
-
   overflow: hidden;
 }
-
 .portrait-image {
   width: 100%;
-  aspect-ratio: 4 / 5;
-
+  aspect-ratio: 4/5;
   overflow: hidden;
   background: var(--surface-2);
 }
-
 .portrait-image img {
   width: 100%;
   height: 100%;
-
   object-fit: cover;
   object-position: center;
-
   filter: saturate(0.92);
 }
-
 .portrait-info {
   min-height: 68px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-
   padding: 0 18px;
-
   background: var(--surface);
   border-top: 1px solid var(--border);
 }
-
 .portrait-info span {
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 1.5px;
   color: var(--teal);
 }
-
 .portrait-info strong {
   font-size: 11px;
   font-weight: 800;
   color: var(--text);
 }
-
 .ecg-card {
   position: absolute;
   right: 0;
   bottom: 0;
-
   z-index: 5;
-
   width: 255px;
   height: 128px;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   padding: 17px;
-
   background: var(--ink);
   border: 1px solid var(--ink);
-
   color: var(--bg);
 }
-
 .ecg-label {
   font-size: 8px;
   font-weight: 800;
   letter-spacing: 1.7px;
   color: var(--teal-soft);
 }
-
 .ecg-card svg {
   width: 100%;
   height: 40px;
 }
-
 .ecg-card polyline {
   fill: none;
-
   stroke: var(--teal-soft);
   stroke-width: 2;
-
   stroke-linecap: round;
   stroke-linejoin: round;
-
   stroke-dasharray: 500;
   stroke-dashoffset: 500;
-
   animation: ecgDraw 3s linear infinite;
 }
-
 @keyframes ecgDraw {
   to {
     stroke-dashoffset: 0;
   }
 }
-
 .ecg-school {
   font-size: 9px;
   color: var(--bg);
 }
-
 .medical-symbol {
   position: absolute;
-
   top: 12px;
   right: -4px;
-
   z-index: 1;
-
   font-family: Arial, sans-serif;
   font-size: 60px;
   font-weight: 300;
   line-height: 1;
-
   color: var(--teal);
-
   opacity: 0.12;
-
   pointer-events: none;
 }
-
-/* =========================================================
-   GENERAL SECTIONS
-========================================================= */
-
 .section {
   padding: 105px 0;
   border-bottom: 1px solid var(--border);
 }
-
 .section-header {
   margin-bottom: 52px;
 }
-
 .section-eyebrow {
   display: block;
   margin-bottom: 13px;
-
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 2px;
-
   color: var(--teal);
 }
-
 .section-title {
   font-family: "Playfair Display", serif;
-
   font-size: clamp(42px, 5vw, 66px);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -2px;
-
   color: var(--ink-dark);
 }
-
 .section-title em {
   font-style: normal;
   color: var(--teal);
 }
-
 .section-description {
   max-width: 600px;
   margin-top: 17px;
-
   color: var(--muted);
 }
-
-/* =========================================================
-   ABOUT
-========================================================= */
-
 .about-content {
   max-width: 820px;
 }
-
 .about-content p {
   margin-bottom: 20px;
-
   font-size: clamp(20px, 2vw, 27px);
   line-height: 1.5;
-
   color: var(--muted);
 }
-
 .about-content p:last-child {
   margin-bottom: 0;
 }
-
-/* =========================================================
-   JOURNEY
-========================================================= */
-
 .timeline {
   position: relative;
   max-width: 950px;
   margin-inline: auto;
 }
-
 .timeline::before {
   content: "";
-
   position: absolute;
   left: 24px;
   top: 0;
   bottom: 0;
-
   width: 1px;
-
   background: var(--border);
 }
-
 .timeline-item {
   position: relative;
-
   display: grid;
   grid-template-columns: 50px 125px minmax(0, 1fr);
-
   gap: 22px;
-
   min-height: 120px;
   padding-bottom: 38px;
 }
-
 .timeline-item:last-child {
   padding-bottom: 0;
 }
-
 .timeline-dot {
   position: relative;
   z-index: 2;
-
   width: 50px;
   height: 50px;
-
   display: grid;
   place-items: center;
-
   background: var(--bg);
   border: 1px solid var(--border);
-
   font-size: 10px;
   font-weight: 800;
-
   color: var(--muted);
 }
-
 .timeline-item.active .timeline-dot {
   background: var(--teal);
   border-color: var(--teal);
   color: #fff;
 }
-
 .timeline-status {
   padding-top: 14px;
-
   font-size: 9px;
   font-weight: 800;
   letter-spacing: 1.2px;
-
   color: var(--muted);
 }
-
 .timeline-item.active .timeline-status {
   color: var(--teal);
 }
-
 .timeline-content {
   min-width: 0;
 }
-
 .timeline-content h3 {
   margin-bottom: 7px;
-
   font-family: "Playfair Display", serif;
   font-size: 25px;
-
   color: var(--ink-dark);
 }
-
 .timeline-content p {
   max-width: 600px;
   font-size: 13px;
   color: var(--muted);
 }
-
-/* =========================================================
-   EDUCATION
-========================================================= */
-
 .education-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
-
   padding: 30px;
-
   background: var(--surface);
   border: 1px solid var(--border);
 }
-
 .education-card h3 {
   margin-bottom: 6px;
-
   font-family: "Playfair Display", serif;
   font-size: 27px;
-
   color: var(--ink-dark);
 }
-
 .education-card p {
   font-size: 13px;
   color: var(--muted);
 }
-
 .education-year {
   flex-shrink: 0;
-
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 1.5px;
-
   color: var(--teal);
 }
-
-/* =========================================================
-   CLINICAL
-========================================================= */
-
 .clinical-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-
   gap: 1px;
-
   background: var(--border);
   border: 1px solid var(--border);
 }
-
 .clinical-card {
   min-height: 205px;
-
   padding: 28px;
-
   background: var(--bg);
-
   transition: background-color var(--ease);
 }
-
 .clinical-card:hover {
   background: var(--surface);
 }
-
 .clinical-number {
   margin-bottom: 52px;
-
   font-size: 9px;
   font-weight: 800;
   letter-spacing: 1.2px;
-
   color: var(--teal);
 }
-
 .clinical-card h3 {
   margin-bottom: 7px;
-
   font-family: "Playfair Display", serif;
   font-size: 25px;
-
   color: var(--ink-dark);
 }
-
 .clinical-card p {
   font-size: 12px;
   color: var(--muted);
 }
-
-/* =========================================================
-   INTERESTS
-========================================================= */
-
 .interests-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-
   border-top: 1px solid var(--border);
   border-left: 1px solid var(--border);
 }
-
 .interest-item {
   min-height: 165px;
-
   padding: 28px;
-
   background: var(--bg);
-
   border-right: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-
   transition: background-color var(--ease);
 }
-
 .interest-item:hover {
   background: var(--surface);
 }
-
 .interest-number {
   margin-bottom: 40px;
-
   font-size: 9px;
   font-weight: 800;
   letter-spacing: 1.4px;
-
   color: var(--teal);
 }
-
 .interest-item h3 {
   font-family: "Playfair Display", serif;
   font-size: 26px;
-
   color: var(--ink-dark);
 }
-
-/* =========================================================
-   VOLUNTEERING
-========================================================= */
-
 .volunteer-content {
   max-width: 800px;
-
   padding: 30px;
-
   background: var(--surface);
   border-left: 3px solid var(--teal);
 }
-
 .volunteer-content h3 {
   margin-bottom: 9px;
-
   font-family: "Playfair Display", serif;
   font-size: 29px;
-
   color: var(--ink-dark);
 }
-
 .volunteer-content p {
   font-size: 13px;
   color: var(--muted);
 }
-
-/* =========================================================
-   CONTACT
-========================================================= */
-
 .contact-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 40px;
-
   padding: 32px 0;
-
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
-
 .contact-text p {
   font-size: 13px;
   color: var(--muted);
 }
-
 .contact-email {
   flex-shrink: 0;
-
   font-size: clamp(17px, 2vw, 24px);
   font-weight: 800;
-
   color: var(--teal);
-
   overflow-wrap: anywhere;
-
   transition: color var(--ease);
 }
-
 .contact-email:hover {
   color: var(--ink-dark);
 }
-
-/* =========================================================
-   BACK TO TOP
-   JS uses .show
-========================================================= */
-
 .back-to-top {
   position: fixed;
   right: 24px;
   bottom: 24px;
-
   z-index: 900;
-
   width: 44px;
   height: 44px;
-
   display: grid;
   place-items: center;
-
   background: var(--surface);
   border: 1px solid var(--border);
-
   color: var(--text);
-
   cursor: pointer;
-
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
-
   transition:
     opacity var(--ease),
     visibility var(--ease),
@@ -955,319 +646,227 @@ button {
     background-color var(--ease),
     border-color var(--ease);
 }
-
 .back-to-top.show {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
-
 .back-to-top:hover {
   background: var(--teal);
   border-color: var(--teal);
   color: #fff;
 }
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
 .footer {
   padding: 24px 0;
   background: var(--surface-2);
 }
-
 .footer-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-
   font-size: 10px;
   font-weight: 700;
-
   color: var(--muted);
 }
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
 .reveal {
   opacity: 0;
   transform: translateY(18px);
-
   transition:
     opacity 600ms ease,
     transform 600ms ease;
 }
-
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
-
 .no-js .reveal {
   opacity: 1;
   transform: none;
 }
-
-/* =========================================================
-   FOCUS
-========================================================= */
-
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--teal);
   outline-offset: 3px;
 }
-
-/* =========================================================
-   TABLET
-========================================================= */
-
 @media (max-width: 1050px) {
   .hero-grid {
     grid-template-columns: minmax(0, 1fr) 400px;
     gap: 45px;
   }
-
   .hero-visual {
     width: 400px;
   }
-
   .portrait-card {
     width: 355px;
   }
-
   .ecg-card {
     width: 230px;
   }
-
   .nav-links {
     gap: 20px;
   }
 }
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
 @media (max-width: 850px) {
   :root {
     --nav-height: 70px;
   }
-
   .container,
   .navbar-inner,
   .hero .container {
     width: calc(100% - 32px);
   }
-
   .nav-links {
     display: none;
   }
-
   .nav-contact {
     display: none;
   }
-
   .hero-grid {
     min-height: auto;
-
     grid-template-columns: 1fr;
-
     gap: 48px;
-
     padding: 55px 0 65px;
   }
-
   .hero-content {
     max-width: 650px;
   }
-
   .hero-title {
     font-size: clamp(54px, 14vw, 76px);
     letter-spacing: -3px;
   }
-
   .hero-visual {
     width: min(430px, 100%);
     margin-inline: auto;
-
     padding-bottom: 62px;
   }
-
   .portrait-card {
     width: min(380px, calc(100% - 12px));
   }
-
   .ecg-card {
     right: 0;
     bottom: 0;
     width: 240px;
   }
-
   .medical-symbol {
     right: 0;
   }
-
   .section {
     padding: 90px 0;
   }
-
   .timeline-item {
     grid-template-columns: 50px minmax(0, 1fr);
     gap: 18px;
   }
-
   .timeline-dot {
     grid-column: 1;
     grid-row: 1 / span 2;
   }
-
   .timeline-status {
     grid-column: 2;
     grid-row: 1;
     padding-top: 0;
   }
-
   .timeline-content {
     grid-column: 2;
     grid-row: 2;
   }
-
   .education-card {
     align-items: flex-start;
     flex-direction: column;
   }
-
   .contact-content {
     align-items: flex-start;
     flex-direction: column;
   }
 }
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
 @media (max-width: 560px) {
   .container,
   .navbar-inner {
     width: calc(100% - 24px);
   }
-
   .logo {
     font-size: 27px;
   }
-
   .hero-grid {
     gap: 40px;
     padding: 45px 0 55px;
   }
-
   .hero-title {
     font-size: clamp(48px, 15vw, 66px);
   }
-
   .hero-subtitle {
     font-size: 14px;
   }
-
   .hero-description {
     font-size: 13px;
   }
-
   .hero-buttons {
     flex-direction: column;
     align-items: stretch;
   }
-
   .btn {
     width: 100%;
   }
-
   .hero-visual {
     width: 100%;
     padding-bottom: 56px;
   }
-
   .portrait-card {
     width: calc(100% - 4px);
   }
-
   .ecg-card {
     width: 215px;
     height: 115px;
     padding: 15px;
   }
-
   .medical-symbol {
     top: 8px;
     font-size: 50px;
   }
-
   .section {
     padding: 75px 0;
   }
-
   .section-title {
     font-size: 42px;
   }
-
   .about-content p {
     font-size: 19px;
   }
-
   .clinical-grid {
     grid-template-columns: 1fr;
   }
-
   .clinical-card {
     min-height: 185px;
   }
-
   .interests-grid {
     grid-template-columns: 1fr;
   }
-
   .interest-item {
     min-height: 140px;
   }
-
   .interest-item h3 {
     font-size: 24px;
   }
-
   .volunteer-content {
     padding: 24px;
   }
-
   .contact-email {
     font-size: 17px;
   }
-
   .footer-inner {
     align-items: flex-start;
     flex-direction: column;
   }
-
   .back-to-top {
     right: 14px;
     bottom: 14px;
   }
 }
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-
   *,
   *::before,
   *::after {
@@ -1275,12 +874,10 @@ button:focus-visible {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-
   .reveal {
     opacity: 1;
     transform: none;
   }
-
   .ecg-card polyline {
     animation: none;
     stroke-dashoffset: 0;

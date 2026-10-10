@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theory PDFs | Dr. Prajwal Badiger</title>
+    <link rel="icon" href="../../../../assets/Icon.png" />
+    <link rel="stylesheet" href="../../resource.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="navbar-inner">
+        <a href="../../../../index.html" class="logo">PB<span>.</span></a>
+        <a href="../index.html" class="back-link">← Theory</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-icon">☾</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <span class="eyebrow">MEDICINE / THEORY / DOCUMENTS</span>
+          <h1>PDFs<span>.</span></h1>
+          <p class="page-description">
+            Medical documents and study references.
+          </p>
+        </div>
+      </section>
+
+      <section class="resource-section">
+        <div class="container">
+          <div class="resource-heading">
+            <span class="eyebrow">DOCUMENT LIBRARY</span>
+            <h2>Available Files</h2>
+          </div>
+
+          <div class="file-grid">
+            <a
+              href="CNS.pdf"
+              class="file-card"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="file-type">PDF DOCUMENT · 3 PAGES</span>
+              <div>
+                <h3>CNS.pdf</h3>
+                <p>Central Nervous System study material.</p>
+              </div>
+              <span class="file-action">Open PDF ↗</span>
+            </a>
+          </div>
+
+          <a href="../index.html" class="bottom-back">← Back to Theory</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <div class="container footer-inner">
+        <span>© 2026 Dr. Prajwal Badiger</span>
+        <span>Medicine · Theory PDFs</span>
+      </div>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById("themeToggle");
+      const icon = document.querySelector(".theme-icon");
+
+      function setTheme(theme) {
+        document.body.classList.toggle("dark", theme === "dark");
+        icon.textContent = theme === "dark" ? "☀" : "☾";
+      }
+
+      try {
+        setTheme(localStorage.getItem("prajwal-theme") || "light");
+      } catch {
+        setTheme("light");
+      }
+
+      toggle.addEventListener("click", () => {
+        const next = document.body.classList.contains("dark")
+          ? "light"
+          : "dark";
+        setTheme(next);
+        try {
+          localStorage.setItem("prajwal-theme", next);
+        } catch {}
+      });
+    </script>
+  </body>
+</html>
